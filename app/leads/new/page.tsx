@@ -1,2 +1,41 @@
 import Nav from '@/components/Nav'
-export default function NewLead(){return <main className="min-h-screen bg-[#0D1117] text-white"><Nav/><section className="mx-auto max-w-3xl px-6 py-10"><h1 className="text-4xl font-bold">Add New Lead</h1><p className="mt-2 text-white/60">MVP form. Next build connects this to a database and notifications.</p><form className="mt-8 grid gap-4 rounded-3xl border border-white/10 bg-white/5 p-6">{[['Customer Name','text'],['Phone Number','tel'],['Email','email'],['Address','text']].map(([label,type])=><label key={label} className="grid gap-2"><span className="text-sm text-white/70">{label}</span><input type={type} className="rounded-xl border border-white/10 bg-black/30 p-3 outline-none focus:border-[#3B82F6]"/></label>)}<label className="grid gap-2"><span className="text-sm text-white/70">Service Type</span><select className="rounded-xl border border-white/10 bg-black/30 p-3 outline-none focus:border-[#3B82F6]"><option>Water Damage</option><option>Fire Damage</option><option>Mold</option><option>Storm</option><option>Other</option></select></label><label className="grid gap-2"><span className="text-sm text-white/70">Notes</span><textarea className="h-32 rounded-xl border border-white/10 bg-black/30 p-3 outline-none focus:border-[#3B82F6]"/></label><button type="button" className="rounded-xl bg-[#3B82F6] px-5 py-3 font-bold">Start Recovery</button></form></section></main>}
+
+export default function NewLead() {
+  return (
+    <main>
+      <Nav />
+      <section className="container" style={{maxWidth:760}}>
+        <h1 style={{fontSize:42,margin:'0 0 8px'}}>Add New Lead</h1>
+        <p className="p" style={{marginTop:0}}>MVP form. Next build connects this to a database and notifications.</p>
+        <form className="card form">
+          {[
+            ['Customer Name','text'],
+            ['Phone Number','tel'],
+            ['Email','email'],
+            ['Address','text']
+          ].map(([label,type]) => (
+            <label className="label" key={label}>
+              {label}
+              <input type={type} className="input" />
+            </label>
+          ))}
+          <label className="label">
+            Service Type
+            <select className="select">
+              <option>Water Damage</option>
+              <option>Fire Damage</option>
+              <option>Mold</option>
+              <option>Storm</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label className="label">
+            Notes
+            <textarea className="textarea" />
+          </label>
+          <button type="button" className="btn" style={{border:0,cursor:'pointer'}}>Start Recovery</button>
+        </form>
+      </section>
+    </main>
+  )
+}

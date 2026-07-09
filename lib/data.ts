@@ -1,3 +1,38 @@
-export type LeadStage = 'New'|'Contacted'|'Inspection Scheduled'|'Estimate Sent'|'Job Won'|'Job Lost'
-export type Lead = {id:string;customerName:string;phone:string;email?:string;address:string;serviceType:string;notes:string;stage:LeadStage;createdAt:string}
-export const demoLeads: Lead[]=[{id:'LR-1001',customerName:'Sarah Mitchell',phone:'(555) 217-9082',email:'sarah@example.com',address:'1247 Oak Ridge Dr',serviceType:'Water Damage',notes:'Basement water from burst pipe. Needs emergency response.',stage:'New',createdAt:'Today, 8:14 AM'},{id:'LR-1002',customerName:'David Carter',phone:'(555) 662-1409',email:'david@example.com',address:'88 Cedar Lane',serviceType:'Mold',notes:'Visible mold after previous leak.',stage:'Contacted',createdAt:'Today, 7:42 AM'}]
+export type LeadStage = 'New' | 'Contacted' | 'Inspection Scheduled' | 'Estimate Sent' | 'Job Won' | 'Job Lost'
+
+export type Lead = {
+  id: string
+  customerName: string
+  phone: string
+  email?: string
+  address: string
+  serviceType: string
+  notes: string
+  stage: LeadStage
+  createdAt: string
+}
+
+export const demoLeads: Lead[] = [
+  {
+    id: 'LR-1001',
+    customerName: 'Sarah Mitchell',
+    phone: '(555) 217-9082',
+    email: 'sarah@example.com',
+    address: '1247 Oak Ridge Dr',
+    serviceType: 'Water Damage',
+    notes: 'Basement water from burst pipe. Needs emergency response.',
+    stage: 'New',
+    createdAt: 'Today, 8:14 AM'
+  },
+  {
+    id: 'LR-1002',
+    customerName: 'David Carter',
+    phone: '(555) 662-1409',
+    email: 'david@example.com',
+    address: '88 Cedar Lane',
+    serviceType: 'Mold',
+    notes: 'Visible mold after previous leak.',
+    stage: 'Contacted',
+    createdAt: 'Today, 7:42 AM'
+  }
+]

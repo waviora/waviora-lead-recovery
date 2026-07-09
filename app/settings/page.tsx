@@ -1,2 +1,21 @@
 import Nav from '@/components/Nav'
-export default function Settings(){return <main className="min-h-screen bg-[#0D1117] text-white"><Nav/><section className="mx-auto max-w-3xl px-6 py-10"><h1 className="text-4xl font-bold">Company Setup</h1><div className="mt-8 grid gap-4 rounded-3xl border border-white/10 bg-white/5 p-6">{['Business Name','Emergency Phone','Notification Email','Business Hours'].map((label)=><label key={label} className="grid gap-2"><span className="text-sm text-white/70">{label}</span><input className="rounded-xl border border-white/10 bg-black/30 p-3 outline-none focus:border-[#3B82F6]"/></label>)}<button className="rounded-xl bg-[#3B82F6] px-5 py-3 font-bold">Save Settings</button></div></section></main>}
+
+export default function Settings() {
+  return (
+    <main>
+      <Nav />
+      <section className="container" style={{maxWidth:760}}>
+        <h1 style={{fontSize:42,margin:'0 0 20px'}}>Company Setup</h1>
+        <div className="card form">
+          {['Business Name','Emergency Phone','Notification Email','Business Hours'].map(label => (
+            <label className="label" key={label}>
+              {label}
+              <input className="input" />
+            </label>
+          ))}
+          <button className="btn" style={{border:0,cursor:'pointer'}}>Save Settings</button>
+        </div>
+      </section>
+    </main>
+  )
+}

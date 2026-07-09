@@ -1,3 +1,36 @@
 import Link from 'next/link'
 import Nav from '@/components/Nav'
-export default function Home(){return <main className="min-h-screen bg-[#0D1117] text-white"><Nav/><section className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-2 md:items-center"><div><p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#3B82F6]">For restoration companies</p><h1 className="text-5xl font-bold leading-tight md:text-6xl">Never let a new lead wait.</h1><p className="mt-6 text-lg leading-8 text-white/70">Waviora captures new restoration leads, alerts your team, tracks follow-up, and helps prevent high-value jobs from slipping through the cracks.</p><div className="mt-8 flex gap-4"><Link href="/dashboard" className="rounded-xl bg-[#3B82F6] px-6 py-3 font-semibold">Open Demo Dashboard</Link><Link href="/leads/new" className="rounded-xl border border-white/20 px-6 py-3 font-semibold">Add Lead</Link></div></div><div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl"><div className="mb-4 flex items-center justify-between"><div className="text-lg font-bold">Lead Recovery Snapshot</div><div className="rounded-full bg-[#3B82F6]/20 px-3 py-1 text-sm text-[#93C5FD]">Live Demo</div></div><div className="grid gap-4">{['New Leads: 7','Awaiting Response: 2','Avg Response Time: 4 min','Jobs Won: 3'].map((item)=><div key={item} className="rounded-2xl bg-black/30 p-4 text-white/80">{item}</div>)}</div></div></section></main>}
+
+export default function Home() {
+  return (
+    <main>
+      <Nav />
+      <section className="container hero">
+        <div>
+          <p className="eyebrow">For restoration companies</p>
+          <h1 className="h1">Never let a new lead wait.</h1>
+          <p className="p">
+            Waviora captures new restoration leads, alerts your team, tracks follow-up,
+            and helps prevent high-value jobs from slipping through the cracks.
+          </p>
+          <div className="buttons">
+            <Link href="/dashboard" className="btn">Open Demo Dashboard</Link>
+            <Link href="/leads/new" className="btn secondary">Add Lead</Link>
+          </div>
+        </div>
+        <div className="card">
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:16}}>
+            <strong>Lead Recovery Snapshot</strong>
+            <span className="pill">Live Demo</span>
+          </div>
+          <div className="snap">
+            <div>New Leads: 7</div>
+            <div>Awaiting Response: 2</div>
+            <div>Avg Response Time: 4 min</div>
+            <div>Jobs Won: 3</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}

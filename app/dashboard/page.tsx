@@ -1,4 +1,46 @@
 import Nav from '@/components/Nav'
 import { demoLeads } from '@/lib/data'
 import Link from 'next/link'
-export default function Dashboard(){const stats=[['New Leads','7'],['Contacted','5'],['Awaiting Response','2'],['Won','3']];return <main className="min-h-screen bg-[#0D1117] text-white"><Nav/><section className="mx-auto max-w-6xl px-6 py-10"><div className="flex items-center justify-between"><div><h1 className="text-4xl font-bold">Dashboard</h1><p className="mt-2 text-white/60">Track every restoration lead from first contact to closed job.</p></div><Link href="/leads/new" className="rounded-xl bg-[#3B82F6] px-5 py-3 font-semibold">Add Lead</Link></div><div className="mt-8 grid gap-4 md:grid-cols-4">{stats.map(([label,value])=><div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-5"><div className="text-sm text-white/60">{label}</div><div className="mt-2 text-4xl font-bold">{value}</div></div>)}</div><div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6"><h2 className="text-2xl font-bold">Lead Pipeline</h2><div className="mt-5 overflow-hidden rounded-2xl border border-white/10"><table className="w-full text-left text-sm"><thead className="bg-black/40 text-white/60"><tr><th className="p-4">Customer</th><th className="p-4">Service</th><th className="p-4">Phone</th><th className="p-4">Stage</th><th className="p-4">Created</th></tr></thead><tbody>{demoLeads.map((lead)=><tr key={lead.id} className="border-t border-white/10"><td className="p-4 font-medium">{lead.customerName}</td><td className="p-4">{lead.serviceType}</td><td className="p-4">{lead.phone}</td><td className="p-4"><span className="rounded-full bg-[#3B82F6]/20 px-3 py-1 text-[#93C5FD]">{lead.stage}</span></td><td className="p-4 text-white/60">{lead.createdAt}</td></tr>)}</tbody></table></div></div></section></main>}
+
+export default function Dashboard() {
+  const stats = [['New Leads','7'],['Contacted','5'],['Awaiting Response','2'],['Won','3']]
+  return (
+    <main>
+      <Nav />
+      <section className="container">
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:20}}>
+          <div>
+            <h1 style={{fontSize:42,margin:'0 0 8px'}}>Dashboard</h1>
+            <p className="p" style={{margin:0}}>Track every restoration lead from first contact to closed job.</p>
+          </div>
+          <Link href="/leads/new" className="btn">Add Lead</Link>
+        </div>
+        <div className="grid4" style={{marginTop:32}}>
+          {stats.map(([label,value]) => (
+            <div className="stat" key={label}>
+              <div className="statLabel">{label}</div>
+              <div className="statValue">{value}</div>
+            </div>
+          ))}
+        </div>
+        <div className="card" style={{marginTop:36}}>
+          <h2 style={{marginTop:0}}>Lead Pipeline</h2>
+          <table className="table">
+            <thead><tr><th>Customer</th><th>Service</th><th>Phone</th><th>Stage</th><th>Created</th></tr></thead>
+            <tbody>
+              {demoLeads.map(lead => (
+                <tr key={lead.id}>
+                  <td><strong>{lead.customerName}</strong></td>
+                  <td>{lead.serviceType}</td>
+                  <td>{lead.phone}</td>
+                  <td><span className="pill">{lead.stage}</span></td>
+                  <td style={{color:'rgba(255,255,255,.65)'}}>{lead.createdAt}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  )
+}
