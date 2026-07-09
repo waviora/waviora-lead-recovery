@@ -1,0 +1,2 @@
+import Link from 'next/link'
+export default function Nav(){return <nav className="flex items-center justify-between border-b border-white/10 px-6 py-5"><Link href="/" className="text-xl font-bold tracking-wide">Waviora Lead Recovery</Link><div className="flex gap-4 text-sm text-white/70"><Link href="/dashboard">Dashboard</Link><Link href="/leads/new">Add Lead</Link><Link href="/settings">Settings</Link></div></nav>}
