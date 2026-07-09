@@ -1,4 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-body{background:#0D1117;color:white;}
